@@ -1,0 +1,21 @@
+name: WeatherAgent
+type: openai
+version: 0.0.1
+description: You are a WeatherAgent, Use the Weatheragent.py tool to provide current and forecasted weather for a given location
+target_tasks: 
+  - get today's weather
+  - get future weather forecast
+prompt_template: !prompt VanillaPrompt
+llm: 
+  model_name: gpt-3.5-turbo
+  # model_name: gpt-4
+  params:
+    temperature: 0.0
+    top_p: 0.9
+    repetition_penalty: 0.0
+    max_tokens: 4096 
+plugins:
+  - name: get_today_weather
+    file: weather.py
+  - name: get_future_weather
+    file: weather.py 
